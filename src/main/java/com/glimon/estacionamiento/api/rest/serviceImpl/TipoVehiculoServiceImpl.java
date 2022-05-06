@@ -25,7 +25,7 @@ public class TipoVehiculoServiceImpl implements TipoVehiculoService {
 		List<TipoVehiculoModel> lstTipoVeihiculos = this.tipoVehiculoDAO.findAll();
 		//convertimos la entitad a un dto
 		List<TipoVehiculoResponseDTO> listaTipoVehiculos = lstTipoVeihiculos.stream().map(tipoVehiculo -> {
-			return new TipoVehiculoResponseDTO(tipoVehiculo.getCveTipoVehiculo(), tipoVehiculo.getDescTipoVehiculo(),tipoVehiculo.getEstatus());
+			return new TipoVehiculoResponseDTO(tipoVehiculo.getCveTipoVehiculo(), tipoVehiculo.getDescTipoVehiculo(),tipoVehiculo.getTarifa(),tipoVehiculo.getEstatus());
 		}).collect(Collectors.toList());
 		//retornamos la lista ya convertida en dto
 		return listaTipoVehiculos;
@@ -40,7 +40,7 @@ public class TipoVehiculoServiceImpl implements TipoVehiculoService {
 			throw new Exception("La clave del tipo de veiculo, no existe ");
 		}
 		//si existe el tipo de vehiculo con esa clave, lo convertimos a dto para responder con el
-		TipoVehiculoResponseDTO vehiculo = new TipoVehiculoResponseDTO(tipoVehiculo.getCveTipoVehiculo(), tipoVehiculo.getDescTipoVehiculo(),tipoVehiculo.getEstatus());
+		TipoVehiculoResponseDTO vehiculo = new TipoVehiculoResponseDTO(tipoVehiculo.getCveTipoVehiculo(), tipoVehiculo.getDescTipoVehiculo(),tipoVehiculo.getTarifa(),tipoVehiculo.getEstatus());
 		
 		return vehiculo;
 	}
@@ -56,6 +56,7 @@ public class TipoVehiculoServiceImpl implements TipoVehiculoService {
 		nuevoTipoVehiculo.setCveTipoVehiculo(nvaClaveTipoVehiculo);
 		nuevoTipoVehiculo.setDescTipoVehiculo(tipoVehiculoRequestDTO.getDescTipoVehiculo());
 		nuevoTipoVehiculo.setEstatus(20);//el estatus 20 es activo
+		nuevoTipoVehiculo.setTarifa(tipoVehiculoRequestDTO.getTarifa());
 		nuevoTipoVehiculo.setFechaRegistro(new Date());
 		
 		tipoVehiculoDAO.save(nuevoTipoVehiculo);

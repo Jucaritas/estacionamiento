@@ -10,13 +10,23 @@ public class TipoVehiculoResponseDTO implements Serializable {
 	
 	private int cveTipoVehiculo;
     private String descTipoVehiculo;
+    private int tarifa;
     private int estatus;
     
-	public TipoVehiculoResponseDTO(int cveTipoVehiculo, String descTipoVehiculo, int estatus) {
+    public TipoVehiculoResponseDTO(int cveTipoVehiculo, String descTipoVehiculo, int tarifa, int estatus) {
 		super();
 		this.cveTipoVehiculo = cveTipoVehiculo;
 		this.descTipoVehiculo = descTipoVehiculo;
+		this.tarifa = tarifa;
 		this.estatus = estatus;
+	}
+
+	public int getTarifa() {
+		return tarifa;
+	}
+
+	public void setTarifa(int tarifa) {
+		this.tarifa = tarifa;
 	}
 	
 	public int getCveTipoVehiculo() {

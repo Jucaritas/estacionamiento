@@ -27,6 +27,9 @@ public class TipoVehiculoModel {
     @Column(name = "fecha_registro")
     private Date fechaRegistro;
     
+    @Column(name = "tarifa")
+    private int tarifa;
+    
     @Column(name = "estatus")
     private int estatus;
 
@@ -60,6 +63,14 @@ public class TipoVehiculoModel {
 
 	public void setFechaRegistro(Date fechaRegistro) {
 		this.fechaRegistro = fechaRegistro;
+	}
+
+	public int getTarifa() {
+		return tarifa;
+	}
+
+	public void setTarifa(int tarifa) {
+		this.tarifa = tarifa;
 	}
 
 	public int getEstatus() {
