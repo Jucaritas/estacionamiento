@@ -79,6 +79,7 @@ public class RegistroVisitasServiceImpl implements RegistroVisitasService {
 	    DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
 	    
 		String fecha = "23/03/2022 10:00:00";
+		
 		SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
 		Date data = formato.parse(fecha);
 		Calendar calendar = Calendar.getInstance();
